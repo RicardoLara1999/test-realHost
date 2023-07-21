@@ -119,4 +119,4 @@ export default function App() {
   );
 }
 
-useGLTF.preload("/utils/Barn_Testing/Barn_Testing.glb");
+useGLTF.preload("utils/Barn_Testing/Barn_Testing.glb");
