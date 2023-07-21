@@ -13,7 +13,7 @@ import Model from "../Model";
 export default function App() {
   const cameraRef = useRef();
   const controlsRef = useRef(); // Nuevo ref para los controles
-  const gltb = useGLTF("/utils/Barn_Testing/Barn_Testing.glb");
+  const gltb = useGLTF("utils/Barn_Testing/Barn_Testing.glb");
   const [wallSelected, setWallSelected] = useState(null);
   const [autoRotation, setAutoRotation] = useState(true);
 
