@@ -43,17 +43,26 @@ export default function App() {
     }
   }, [wallSelected]);
 
-  console.log(gltb);
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "space-around", paddingBottom:"1em" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          paddingBottom: "1em",
+        }}
+      >
         <select value={wallSelected} onChange={handleSelectChange}>
           <option value="">Select a wall</option>
           {Object.values(gltb.nodes)
             .filter((node) => node.name.includes("Wall"))
             .map(
               (node) =>
-                !node.isGroup && <option key={node.uuid} value={node.uuid}>{node.name}</option>
+                !node.isGroup && (
+                  <option key={node.uuid} value={node.uuid}>
+                    {node.name}
+                  </option>
+                )
             )}
         </select>
         <select value={wallSelected} onChange={handleSelectChange}>
@@ -62,7 +71,11 @@ export default function App() {
             .filter((node) => !node.name.includes("Wall"))
             .map(
               (node) =>
-                !node.isGroup && <option key={node.uuid} value={node.uuid}>{node.name}</option>
+                !node.isGroup && (
+                  <option key={node.uuid} value={node.uuid}>
+                    {node.name}
+                  </option>
+                )
             )}
         </select>
         <label>
@@ -78,7 +91,7 @@ export default function App() {
       </div>
       <Canvas>
         <OrbitControls
-          ref={controlsRef} // Asignamos el nuevo ref a los controles
+          ref={controlsRef}
           enablePan={true}
           enableZoom={true}
           enableRotate={true}
@@ -89,7 +102,6 @@ export default function App() {
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
 
-        {/* Pasa la cámara PerspectiveCamera como una referencia */}
         <PerspectiveCamera
           ref={cameraRef}
           makeDefault
